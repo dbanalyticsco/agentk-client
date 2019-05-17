@@ -2,15 +2,36 @@
 
 {% block body %}
 
-<h3>Jobs</h3>
-  
-  <ul>
+<h4>Jobs</h4>
+
+  <table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Job Name</th>
+      <th scope="col">Template</th>
+      <th scope="col">Subject</th>
+      <th scope="col">To Email</th>
+      <th scope="col">From Email</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
   {% for job in jobs %}
-  <li>{{ job['name'] }}</li>
-  <form action="/send_email/{{job['name']}}">
-    <input type="submit" value="Send Email" />
-  </form>
+    <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+      <th scope="row">{{ job['name'] }}</th>
+      <td>{{ job['template']}}</td>
+      <td>{{ job['subject']}}</td>
+      <td>{{ job['to_email']}}</td>
+      <td>{{ job['from_email']}}</td>
+      <td>
+      	<form action="/send_email/{{job['name']}}">
+      		<input type="submit" value="Send Email" class="btn btn-info" />
+      	</form>
+      </td>
+
   {% endfor %}
-  </ul>
+  </tbody>
+</table>
+
 
 {% endblock %}

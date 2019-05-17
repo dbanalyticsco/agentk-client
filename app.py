@@ -42,6 +42,7 @@ def send_email(job_name):
 def refresh():
 
 	refresh_target()
+	flash('You successfully refreshed jobs from Github repo: {}'.format(GITHUB_REPO))
 	return redirect(url_for('jobs'))
 
 if __name__ == "__main__":
