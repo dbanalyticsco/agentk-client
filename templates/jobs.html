@@ -17,7 +17,8 @@
   </thead>
   <tbody>
   {% for job in jobs %}
-    <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+    <tr>
+    <div data-toggle="collapse" data-target="#accordion">
       <th scope="row">{{ job['name'] }}</th>
       <td>{{ job['template']}}</td>
       <td>{{ job['subject']}}</td>
@@ -28,7 +29,8 @@
       		<input type="submit" value="Send Email" class="btn btn-info" />
       	</form>
       </td>
-
+    </tr>
+    </div>
   {% endfor %}
   </tbody>
 </table>

@@ -47,7 +47,10 @@ def refresh():
 
 if __name__ == "__main__":
 
-	shutil.rmtree('target/')
+	try:
+		shutil.rmtree('target/')
+	except:
+		pass
 	Repo.clone_from(GITHUB_REPO,'target/')
 	JOBS_FILE = 'target/jobs.yml'
 	TEMPLATE_DIRECTORY = 'target/templates'
