@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Jobs</h3>
+  
+  <ul>
+  {% for job in jobs %}
+  <li>{{ job['name'] }}</li>
+  <form action="/send_email/{{job['name']}}">
+    <input type="submit" value="Send Email" />
+  </form>
+  {% endfor %}
+  </ul>
+
+{% endblock %}
